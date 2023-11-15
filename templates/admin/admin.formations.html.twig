@@ -11,5 +11,27 @@
     </div>
 {% endblock %}
 
-{% block body %}{% endblock %}
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Date publication</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for formation in formations %}
+                <tr>
+                    <td> <h5 class="text-primary">{{ formation.title }}</h5> </td>
+                    <td> {{ formation.Description }}</td>
+                    <td> {{ formation.publishedatstring }}</td>
+                    <td>
+                </tr>
+            {% endfor %}
+            
+        </tbody> 
+    </table>
+{% endblock %}
 {% block javascripts %}{% endblock %}
