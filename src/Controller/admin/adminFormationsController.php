@@ -1,6 +1,7 @@
 <?php
+namespace App\Controller\admin;
 
-    namespace App\Controller\admin;
+use App\Form\FormationType;
 
     use App\Entity\Formation;
     use App\Repository\CategorieRepository;
@@ -60,11 +61,21 @@
         /**
          * @Route("/admin/formations/edit/{id}", name="admin.formation.edit")
          * @param Formation $formation
+         * @param Request $request
          * @return Response
          */
-        public function edit(Formation $formation, $id): Response{
+        public function edit(Formation $formation, Request $request): Response{
+            $formFormation = $this->createForm(FormationType::class, $formation);
+
+            $formFormation->handleRequest($request);
+            if($formFormation->isSubmitted() && $formFormation->isValid()){
+                $this->formationRepository->add($formation, true);
+                return $this->redirectToRoute('admin.formation');
+            }
+            
             return $this->render("admin/admin.formations.edit.html.twig", [
-                'formation' => $formation
+                'formation' => $formation,
+                'formFormation'=> $formFormation->createView()
             ]);
         }
     }
