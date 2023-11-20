@@ -78,4 +78,24 @@ use App\Form\FormationType;
                 'formFormation'=> $formFormation->createView()
             ]);
         }
+        /**
+         * @Route("/admin/formations/ajout", name="admin.formations.ajout")
+         * @param Request $request
+         * @return Response
+         */
+        public function ajout(Request $request): Response{
+            $formation = new Formation();
+            $formFormation = $this->createForm(FormationType::class, $formation);
+
+            $formFormation->handleRequest($request);
+            if($formFormation->isSubmitted() && $formFormation->isValid()){
+                $this->formationRepository->add($formation, true);
+                return $this->redirectToRoute('admin.formations');
+            }
+
+            return $this->render('admin/admin.formations.ajout.html.twig', [
+                'formation'=> $formation,
+                'formFormation'=> $formFormation->createView()
+            ]);
+        }
     }
