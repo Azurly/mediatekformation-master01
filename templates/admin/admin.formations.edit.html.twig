@@ -1,9 +1,7 @@
 {% extends "baseadmin.html.twig" %}
 
 {% block body %}
-    <h2>{{ formation.title }}</h2>
+    <h2>Détail de la formation {{ formation.title }} :</h2>
 
-    {{ form_start(formFormation) }}
-    
-    {{ form_end(formFormation) }}
+    {{  include ('_admin.formations.form.html.twig') }}
 {% endblock %}
