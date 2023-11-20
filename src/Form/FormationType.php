@@ -13,9 +13,11 @@ class FormationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('publishedAt')
+            ->add('publishedAt', null, [
+                'widget' => 'single_text',
+                'label' => 'date'
+                ])
             ->add('title')
-            ->add('description')
             ->add('videoId')
             ->add('submit', SubmitType::class)
         ;
