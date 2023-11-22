@@ -28,7 +28,10 @@ class KeycloakAuthenticator extends OAuth2Authenticator implements Authenticatio
     private $entityManager;
     private $router;
 
-    public function __construct(ClientRegistry $clientRegistry, EntityManagerInterface $entityManager, RouterInterface $router)
+    public function __construct(
+        ClientRegistry $clientRegistry,
+        EntityManagerInterface $entityManager,
+        RouterInterface $router)
     {
         $this->clientRegistry = $clientRegistry;
         $this->entityManager = $entityManager;
@@ -37,7 +40,6 @@ class KeycloakAuthenticator extends OAuth2Authenticator implements Authenticatio
 
     public function supports(Request $request): ?bool
     {
-        // continue ONLY if the current ROUTE matches the check ROUTE
         return $request->attributes->get('_route') === 'oauth_check';
     }
 
@@ -48,15 +50,15 @@ class KeycloakAuthenticator extends OAuth2Authenticator implements Authenticatio
 
         return new SelfValidatingPassport(
             new UserBadge($accessToken->getToken(), function() use ($accessToken, $client) {
-                /** @var User $user */
-                $user = $client->fetchUserFromToken($accessToken);
+                /** @var User $keycloakUser */
+                $keycloakUser = $client->fetchUserFromToken($accessToken);
 
-                $email = $user->getEmail();
+                $email = $keycloakUser->getEmail();
 
                 // 1) have they logged in with Facebook before? Easy!
                 $existingUser = $this->entityManager
                 ->getRepository(User::class)
-                ->findOneBy(['keycloakUser' => $user->getId()]);
+                ->findOneBy(['keycloakId' => $keycloakUser->getId()]);
 
                 if ($existingUser) {
                     return $existingUser;
@@ -68,8 +70,8 @@ class KeycloakAuthenticator extends OAuth2Authenticator implements Authenticatio
                 // 3) Maybe you just want to "register" them by creating
                 // a User object
                 $user = new User();
-                $user->setKeycloakId($user->getId());
-                $user->setEmail($user->getEmail());
+                $user->setKeycloakId($keycloakUser->getId());
+                $user->setEmail($keycloakUser->getEmail());
                 $user->setPassword("");
                 $user->setRoles(["ROLE_ADMIN"]);
                 $this->entityManager->persist($user);
