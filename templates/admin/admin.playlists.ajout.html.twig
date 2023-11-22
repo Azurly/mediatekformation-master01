@@ -1,0 +1,8 @@
+{% extends "baseadmin.html.twig" %}
+
+{% block body %}
+    <h2>Détail de l'ajout de la playlist {{ playlist.name }} :</h2>
+
+    {{ include ('_admin.playlists.form.html.twig') }}
+    
+    {% endblock %}
