@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller\admin;
 
-use App\Form\FormationType;
+    use App\Form\FormationType;
 
     use App\Entity\Formation;
     use App\Repository\CategorieRepository;
