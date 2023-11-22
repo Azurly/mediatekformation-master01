@@ -17,7 +17,7 @@ use App\Form\FormationType;
      *
      * @author emds
      */
-    class adminFormationsController extends AbstractController {
+    class AdminFormationsController extends AbstractController {
 
         const CHEMINADMINFORMATIONHTMLTWIG = "admin/admin.formations.html.twig";
         /**
@@ -31,7 +31,7 @@ use App\Form\FormationType;
         private $categorieRepository;
         
         public function __construct(
-                FormationRepository $formationRepository, 
+                FormationRepository $formationRepository,
                 CategorieRepository $categorieRepository) {
             $this->formationRepository = $formationRepository;
             $this->categorieRepository= $categorieRepository;
