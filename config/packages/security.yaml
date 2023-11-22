@@ -16,9 +16,12 @@ security:
             security: false
         main:
             lazy: true
-            provider: app_user_provider
+            entry_point: form_login
+            # provider: app_user_provider
             form_login:
                 login_path: oauth_login
+            custom_authenticators:
+                - App\Security\KeycloakAuthentificator
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
