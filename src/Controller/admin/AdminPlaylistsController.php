@@ -81,7 +81,7 @@ use App\Form\PlaylistType;
 
             $formPlaylist->handleRequest($request);
             if($formPlaylist->isSubmitted() && $formPlaylist->isValid()){
-                $this->playlistRepository->add($formPlaylist, true);
+                $this->playlistRepository->add($playlist, true);
                 return $this->redirectToRoute('admin.playlists');
             }
 
