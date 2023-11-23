@@ -14,9 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Formation
 {
     /**
-     * Début de chemin vers les images
+     * DÃŠbut de chemin vers les images
      */
-    const CHEMINIMAGE = "https://i.ytimg.com/vi/";
+    private const cheminImage = "https://i.ytimg.com/vi/";
     
     /**
      * @ORM\Id
@@ -110,12 +110,12 @@ class Formation
 
     public function getMiniature(): ?string
     {
-        return self::CHEMINIMAGE.$this->videoId."/default.jpg";
+        return self::cheminImage.$this->videoId."/default.jpg";
     }
 
     public function getPicture(): ?string
     {
-        return self::CHEMINIMAGE.$this->videoId."/hqdefault.jpg";
+        return self::cheminImage.$this->videoId."/hqdefault.jpg";
     }
 
     public function getVideoId(): ?string
