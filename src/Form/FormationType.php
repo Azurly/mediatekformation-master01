@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Playlist;
 use App\Entity\Categorie;
 use App\Entity\Formation;
+use DateTime;
 use Symfony\Component\Form\AbstractType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,6 +22,8 @@ class FormationType extends AbstractType
         $builder
             ->add('publishedAt', DateType::class, [
                 'widget' => 'single_text',
+                'data' => isset($options['data']) &&
+                $options['data']->getPublishedAt() != null ? $options['data']->getPublishedAt() : new DateTime('now'),
                 'label' => 'date'
                 ])
             ->add('title')
