@@ -27,6 +27,7 @@ class Formation
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * [Assert\LessThanOrEqual('today')]
      */
     private $publishedAt;
 
