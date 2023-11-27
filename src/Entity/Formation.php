@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\FormationRepository;
 use DateTimeInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -27,7 +28,7 @@ class Formation
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
-     * [Assert\LessThanOrEqual('today')]
+     * @Assert\LessThanOrEqual("today")
      */
     private $publishedAt;
 

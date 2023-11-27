@@ -20,10 +20,15 @@ class FormationsValidationsTest extends KernelTestCase{
         }
 
         //TestDate inferieur à aujourd'hui
-        public function testDateInferieurEgalToday(){
-            $formation = $this->getFormation()->setPublishedAt(new \DateTime("2024-04-04"));
+        public function testDateInferieurEgalTodayPasOK(){
+            $formation = $this->getFormation()->setPublishedAt(new \DateTime("2025-04-04"));
             $this->assertErrors($formation, 1);
 
+        }
+
+        public function testDateInferieurEgalTodayOK(){
+            $formation = $this->getFormation()->setPublishedAt(new \DateTime("2023-04-04"));
+            $this->assertErrors($formation, 0);
         }
         //Fonction qui sert à gérer les erreurs
         public function assertErrors(Formation $formation, int $nbErreursAttendues, string $message=""){
