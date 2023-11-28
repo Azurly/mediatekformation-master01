@@ -7,9 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 class FormationsTest extends TestCase{
 
-    public function testGetDateString(){
-        $formation = new Formation();
-        $formation->setPublishedAt(new \DateTime("2023-01-04"));
-        $this->assertEquals("04/01/2023", $formation->getPublishedAtString());
-    }
+        // 1 : Date au format string
+        public function testDateFormatString(){
+            $formation = new Formation();
+            $formation->setPublishedAt(new \DateTime("2022-04-14"));
+            $this->assertEquals("14/04/2022", $formation->getPublishedAtString());
+        }
 }
