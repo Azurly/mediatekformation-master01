@@ -29,11 +29,19 @@ class FormationRepositoryTest extends KernelTestCase{
         $repository->add($formation, true);
         $nbFormation = $repository->count([]);
         $repository->remove($formation, true);
-        $this->assertEquals($nbFormation + 1, $repository->count([]));
+        $this->assertEquals($nbFormation - 1, $repository->count([]));
     }
 
+    public function testFindAllForOnePlaylist(){
+        $repository = $this->recupRepository();
+        $formation = $this->newFormation();
+        $repository->add($formation, true);
+        $formations = $repository->findAllForOnePlaylist("4");
+        $nbFormations = count($formations);
+        $this->assertEquals(4, $nbFormations);
+    }
     //Le nombre à assertEquals est le nombre de formations dans la BDD
     public function testNbFormations(){
-        $this->assertEquals(240, $this->recupRepository()->count([]));
+        $this->assertEquals(237, $this->recupRepository()->count([]));
     }
 }
