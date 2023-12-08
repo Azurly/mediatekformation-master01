@@ -24,6 +24,21 @@ use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface
  * @author emds
  */
 class KeycloakAuthenticator extends OAuth2Authenticator implements AuthenticationEntryPointInterface {
+    /**
+     * The above code is a PHP class that handles authentication using OAuth and Keycloak, including
+     * user registration and redirection after successful authentication.
+     * 
+     * ClientRegistry clientRegistry The `` parameter is an instance of the
+     * `ClientRegistry` class. It is responsible for managing OAuth clients in your application. It
+     * allows you to retrieve a specific client by its name or identifier.
+     * EntityManagerInterface entityManager The `entityManager` parameter is an instance of the
+     * `EntityManagerInterface` class, which is responsible for managing the persistence of objects to
+     * the database. It is used to interact with the database and perform operations such as querying,
+     * inserting, updating, and deleting records.
+     * RouterInterface router The `` parameter is an instance of the `RouterInterface`
+     * class, which is used for generating URLs in your application. It allows you to generate URLs
+     * based on route names and parameters.
+     */
     private $clientRegistry;
     private $entityManager;
     private $router;

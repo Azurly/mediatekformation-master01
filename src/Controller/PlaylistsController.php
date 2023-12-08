@@ -18,6 +18,19 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class PlaylistsController extends AbstractController {
 
+    /**
+     * This PHP code defines a controller class with various methods for handling playlists, including
+     * displaying all playlists, sorting playlists, searching for playlists, and displaying a single
+     * playlist.
+     * 
+     * - playlistRepository An instance of the PlaylistRepository class, which
+     * is responsible for retrieving and manipulating playlist data from the database.
+     * - categorieRepository A repository class that handles database
+     * operations related to categories.
+     * - formationRespository The `` parameter is an
+     * instance of the `FormationRepository` class. It is used to retrieve and manipulate data related
+     * to formations (courses or training programs).
+     */
     const CHEMINPLAYLISTHTMLTWIG = "pages/playlists.html.twig";
     /**
      * @var PlaylistRepository

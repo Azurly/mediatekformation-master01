@@ -17,6 +17,16 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class FormationType extends AbstractType
 {
+    /**
+     * The function builds a form with various fields and options for a PHP class called Formation.
+     * 
+     * builder The  parameter is an instance of the
+     * FormBuilderInterface class. It is used to build the form by adding form fields and configuring
+     * their options.
+     * options The `` parameter is an array that contains any additional options
+     * that can be passed to the form builder. These options can be used to customize the behavior of
+     * the form.
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder

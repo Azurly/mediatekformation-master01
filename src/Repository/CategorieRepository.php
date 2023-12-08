@@ -17,6 +17,13 @@ use Symfony\Component\PropertyInfo\Type;
  */
 class CategorieRepository extends ServiceEntityRepository
 {
+    /**
+     * The function `findAllForOnePlaylist` returns an array of categories for a given playlist ID,
+     * sorted in ascending order by name.
+     * 
+     * registry The `` parameter is an instance of the
+     * `ManagerRegistry` class. It is used to retrieve the entity manager for the `Categorie` entity.
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Categorie::class);

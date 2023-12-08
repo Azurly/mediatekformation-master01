@@ -11,6 +11,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class OAuthController extends AbstractController{
 
     /**
+     * The code defines three routes for handling OAuth login, callback, and logout.
+     * 
+     * ClientRegistry The `` parameter is an instance of the
+     * `ClientRegistry` class. It is used to retrieve the OAuth client configuration for a specific
+     * provider. In this case, it is used to retrieve the client configuration for the "keycloak"
+     * provider.
+     * 
+     * @return RedirectResponse In the `index` method, a `RedirectResponse` object is being returned.
+     */
+    /**
      * @Route("/oauth/login", name="oauth_login")
      */
     public function index(ClientRegistry $clientRegistry): RedirectResponse{

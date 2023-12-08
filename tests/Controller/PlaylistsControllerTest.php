@@ -7,6 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class PlaylistsControllerTest extends WebTestCase{
 
+    /**
+     * The code contains three test functions for accessing a page, filtering playlists, and clicking a
+     * link.
+     */
     public function testAccesPage(){
         $client = static::createClient();
         $client->request('GET', '/playlists');

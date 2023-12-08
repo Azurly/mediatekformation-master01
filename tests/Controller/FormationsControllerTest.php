@@ -7,6 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class FormationsControllerTest extends WebTestCase{
 
+    /**
+     * The code contains three test functions for accessing a page, filtering formations, and clicking
+     * on a link.
+     */
     public function testAccesPage(){
         $client = static::createClient();
         $client->request('GET', '/formations');

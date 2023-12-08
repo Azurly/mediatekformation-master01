@@ -16,6 +16,14 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class PlaylistRepository extends ServiceEntityRepository
 {
+    /**
+     * The code contains functions for adding, removing, finding playlists, and retrieving the count of
+     * formations grouped by playlists.
+     * 
+     * ManagerRegistry registry The `` parameter is an instance of the
+     * `ManagerRegistry` class. It is used to access the entity manager and repository for the
+     * `Playlist` entity.
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Playlist::class);

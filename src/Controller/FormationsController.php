@@ -16,6 +16,18 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class FormationsController extends AbstractController {
 
+    /**
+     * This PHP code defines a controller class with various routes for handling formations, including
+     * displaying all formations, sorting formations, searching for formations, and displaying a single
+     * formation.
+     * 
+     *  formationRepository The `` is an instance of the
+     * `FormationRepository` class, which is responsible for retrieving and manipulating data related
+     * to formations (educational courses or programs).
+     * categorieRepository The `categorieRepository` is an instance of the
+     * `CategorieRepository` class. It is responsible for retrieving and managing data related to
+     * categories in the application.
+     */
     const CHEMINFORMATIONHTMLTWIG = "pages/formations.html.twig";
     /**
      * @var FormationRepository

@@ -19,6 +19,13 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
  */
 class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
+   /**
+    * The above code is a PHP class that provides methods for adding, removing, and upgrading a user's
+    * password in a database using Doctrine ORM.
+    * 
+    * ManagerRegistry registry The `` parameter is an instance of the `ManagerRegistry`
+    * class. It is used to access the Doctrine entity manager and repository for the `User` entity.
+    */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, User::class);

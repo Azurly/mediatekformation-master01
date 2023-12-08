@@ -16,6 +16,14 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class FormationRepository extends ServiceEntityRepository
 {
+    /**
+     * This is a PHP class that contains various methods for managing formations, including adding,
+     * removing, and retrieving formations based on different criteria.
+     * 
+     * ManagerRegistry registry The `` parameter is an instance of the
+     * `ManagerRegistry` class. It is used to access the entity manager and repository for the
+     * `Formation` entity.
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Formation::class);

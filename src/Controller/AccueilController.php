@@ -27,6 +27,10 @@ class AccueilController extends AbstractController{
     }
     
     /**
+     * The above function is a PHP method that renders a template with the latest 2 formations and
+     * returns a Response object.
+     */
+    /**
      * @Route("/", name="accueil")
      * @return Response
      */
@@ -41,6 +45,9 @@ class AccueilController extends AbstractController{
      * @Route("/cgu", name="cgu")
      * @return Response
      */
+   /**
+    * The function "cgu" returns a response that renders the "cgu.html.twig" template.
+    */
     public function cgu(): Response{
         return $this->render("pages/cgu.html.twig");
     }
