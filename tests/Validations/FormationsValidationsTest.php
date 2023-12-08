@@ -7,6 +7,13 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class FormationsValidationsTest extends KernelTestCase{
 
+        /**
+         * The code snippet is written in PHP and contains test cases for validating the published date
+         * of a formation.
+         * 
+         * Formation The `getFormation()` function returns an instance of the `Formation`
+         * class.
+         */
         //Instanciation d'une formation pour les tests
         public function getFormation(): Formation{
             return(new Formation())->setTitle("Cours n°5555 sur les Test Kernel")->setVideoId("vefvVEv56");

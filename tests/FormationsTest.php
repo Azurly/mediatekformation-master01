@@ -7,6 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 class FormationsTest extends TestCase{
 
+        /**
+         * The function `testDateFormatString` tests the `getPublishedAtString` method of the
+         * `Formation` class to ensure that it returns the correct date format as a string.
+         */
         // 1 : Date au format string
         public function testDateFormatString(){
             $formation = new Formation();
