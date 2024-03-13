@@ -45,9 +45,6 @@ class AccueilController extends AbstractController{
      * @Route("/cgu", name="cgu")
      * @return Response
      */
-   /**
-    * The function "cgu" returns a response that renders the "cgu.html.twig" template.
-    */
     public function cgu(): Response{
         return $this->render("pages/cgu.html.twig");
     }
